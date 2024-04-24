@@ -16,7 +16,7 @@ SELECT
     
 -- Write a query using the books table that replaces spaces in titles with '->' and name the column title
 SELECT 
-    REPLACE(title, ' ', '->')
+    REPLACE(title, ' ', '->') AS title
 FROM
     books;
 
