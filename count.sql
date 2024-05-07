@@ -14,4 +14,4 @@ SELECT COUNT(DISTINCT(author_fname)) FROM books;
 SELECT COUNT(DISTINCT(author_lname)) FROM books;
 
 -- How many titles contain "the"?
-SELECT title FROM books WHERE COUNT(title LIKE "%the%");
+SELECT COUNT(*) FROM books WHERE title LIKE "%the%";
