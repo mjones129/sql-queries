@@ -14,3 +14,10 @@ VALUES ('Juan', '2020-08-15', '23:59:00', '2020-08-15 23:59:00');
 
 INSERT INTO people (name, birthdate, birthtime, birthdt)
 VALUES ('Hazel', CURDATE(), CURTIME(), NOW());
+
+-- select day of month
+SELECT birthdate, DAY(birthdate), DAYOFWEEK(birthdate), DAYOFYEAR(birthdate) FROM people;
+
+SELECT birthdate, MONTHNAME(birthdate) FROM people;
+
+SELECT name, birthdt, YEAR(birthdt), MONTHNAME(birthdt) FROM people;
