@@ -34,3 +34,7 @@ CREATE TABLE tweets (
     username VARCHAR(20),
     created_at TIMESTAMP DEFAULT NOW()
 );
+
+INSERT INTO tweets (content, username) VALUES ('this is my first tweet', 'mataro');
+
+SELECT * FROM tweets;
