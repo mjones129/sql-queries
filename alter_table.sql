@@ -31,3 +31,10 @@ ALTER TABLE companies
 MODIFY company_name VARCHAR(100) DEFAULT 'unknown';
 
 INSERT INTO companies (address) VALUES ('2554 rose lane');
+
+-- modifying constraints
+-- add constraints to tables where constraints didn't exist before
+ALTER TABLE tablename ADD CONSTRAINT some_constraint CHECK (1 = 1);
+
+-- drop existing constraints from a table
+ALTER TABLE tablename DROP CONSTRAINT constraint_name;
