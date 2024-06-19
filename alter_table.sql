@@ -21,3 +21,13 @@ ALTER TABLE suppliers RENAME TO companies;
 
 -- renaming columns
 ALTER TABLE companies RENAME COLUMN name TO company_name;
+
+DESC companies;
+
+SELECT * from companies;
+
+-- modify column definitions
+ALTER TABLE companies
+MODIFY company_name VARCHAR(100) DEFAULT 'unknown';
+
+INSERT INTO companies (address) VALUES ('2554 rose lane');
