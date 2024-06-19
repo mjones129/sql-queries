@@ -27,3 +27,16 @@ VALUES ('2016-02-10', 99.99, 1),
        ('2014-12-12', 800.67, 2),
        ('2015-01-03', 12.50, 2),
        ('1999-04-11', 450.25, 5);
+       
+       
+-- select all orders placed by boy george
+SELECT id FROM customers WHERE last_name = 'George';
+-- returns id value of 1
+SELECT * FROM orders WHERE customer_id = 1;
+-- returns all boy george's orders... but there's a better way
+
+SELECT * FROM orders WHERE customer_id = (SELECT id FROM customers WHERE last_name = 'George');
+
+-- To perform a (kind of useless) cross join:
+SELECT * FROM customers, orders;
+
