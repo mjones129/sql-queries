@@ -40,3 +40,11 @@ SELECT * FROM orders WHERE customer_id = (SELECT id FROM customers WHERE last_na
 -- To perform a (kind of useless) cross join:
 SELECT * FROM customers, orders;
 
+-- inner join orders to customers
+SELECT first_name, last_name, order_date, amount FROM customers
+JOIN orders ON orders.customer_id = customers.id;
+
+-- inner join customers to orders
+-- INNER is the default JOIN type, so it's optional. Other joins require a type to be specified
+SELECT * from orders
+JOIN customers ON customers.id = orders.customer_id;
