@@ -48,3 +48,23 @@ JOIN orders ON orders.customer_id = customers.id;
 -- INNER is the default JOIN type, so it's optional. Other joins require a type to be specified
 SELECT * from orders
 JOIN customers ON customers.id = orders.customer_id;
+
+-- inner joins with group by
+SELECT first_name, last_name, SUM(amount) as total FROM customers
+JOIN orders ON orders.customer_id = customers.id
+GROUP BY first_name, last_name
+ORDER BY total;
+
+
+SELECT first_name, last_name, order_date, amount FROM customers
+LEFT JOIN orders ON orders.customer_id = customers.id;
+
+-- left join with group by, replace null values with 0
+SELECT first_name, last_name, IFNULL(SUM(amount), 0) AS money_spent FROM customers
+LEFT JOIN orders ON customers.id = orders.customer_id
+GROUP BY first_name, last_name;
+
+-- right join
+SELECT first_name, last_name, IFNULL(SUM(amount), 0) AS money_spent FROM customers
+RIGHT JOIN orders ON customers.id = orders.customer_id
+GROUP BY first_name, last_name;
