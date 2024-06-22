@@ -52,3 +52,11 @@ DROP VIEW ordered_series;
 
 -- keyword HAVING:
 SELECT title, AVG(rating) FROM full_reviews GROUP BY title HAVING COUNT(rating) > 1;
+
+-- WITH ROLLUP keyword
+-- adds a summary of the entire table of average ratings
+SELECT title, AVG(rating) FROM full_reviews GROUP BY title WITH ROLLUP;
+
+SELECT released_year, genre, AVG(rating)
+FROM full_reviews
+GROUP BY released_year, genre WITH ROLLUP;
