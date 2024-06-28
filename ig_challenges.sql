@@ -28,3 +28,14 @@ INNER JOIN likes
 	ON likes.photo_id = photos.id
     GROUP BY photos.id
     ORDER BY COUNT(*) DESC;
+    
+-- how many times does the average user post?
+SELECT username, AVG(COUNT(username)) AS num_posts FROM users
+LEFT JOIN photos ON users.id = photos.user_id
+GROUP BY username;
+
+-- solution
+SELECT (SELECT Count(*) 
+        FROM   photos) / (SELECT Count(*) 
+                          FROM   users) AS avg; 
+                          
