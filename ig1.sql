@@ -9,12 +9,12 @@ CREATE TABLE users (
 );
 
 -- create photos table
-CREATE TABLE photos(
+CREATE TABLE photos (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     image_url VARCHAR(255) NOT NULL,
     user_id INT NOT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
-    FOREIGN KEY(user_id) REFERENCES user(id)
+    FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
 -- create comments table
@@ -61,3 +61,4 @@ CREATE TABLE photo_tags (
     FOREIGN KEY(tag_id) REFERENCES tags(id),
     PRIMARY KEY(photo_id, tag_id)
 );
+
